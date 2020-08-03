@@ -23,37 +23,37 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Backup tool
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/gzosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/gzosp/prebuilt/common/bin/50-gzosp.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-gzosp.sh \
-    vendor/gzosp/prebuilt/common/bin/clean_cache.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/clean_cache.sh
+    vendor/opaosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/opaosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/opaosp/prebuilt/common/bin/50-opaosp.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-opaosp.sh \
+    vendor/opaosp/prebuilt/common/bin/clean_cache.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/clean_cache.sh
 
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/gzosp/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/gzosp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/opaosp/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/opaosp/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/opaosp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 # Backup services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
+    vendor/opaosp/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
+    vendor/opaosp/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
-# Gzosp-specific init file
+# OPAOSP-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/etc/init.local.rc:root/init.gzosp.rc
+    vendor/opaosp/prebuilt/common/etc/init.local.rc:root/init.opaosp.rc
 
 # Copy LatinIME for gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/lib/libjni_latinimegoogle.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libjni_latinimegoogle.so
+    vendor/opaosp/prebuilt/common/lib/libjni_latinimegoogle.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libjni_latinimegoogle.so
 
 # SELinux file system labels
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/etc/init.d/50selinuxrelabel:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/50selinuxrelabel
+    vendor/opaosp/prebuilt/common/etc/init.d/50selinuxrelabel:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/50selinuxrelabel
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -61,13 +61,13 @@ PRODUCT_COPY_FILES += \
 
 # Fix Dialer
 #PRODUCT_COPY_FILES +=  \
-#    vendor/gzosp/prebuilt/common/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml
+#    vendor/opaosp/prebuilt/common/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml
 
 # privapp permissions
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/etc/permissions/privapp-permissions-gzr.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-gzr.xml \
-    vendor/gzosp/prebuilt/common/etc/permissions/privapp-permissions-google.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-google.xml \
-    vendor/gzosp/config/permissions/privapp-permissions-gzosp-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-gzosp.xml
+    vendor/opaosp/prebuilt/common/etc/permissions/privapp-permissions-gzr.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-gzr.xml \
+    vendor/opaosp/prebuilt/common/etc/permissions/privapp-permissions-google.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-google.xml \
+    vendor/opaosp/config/permissions/privapp-permissions-opaosp-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-opaosp.xml
 
 # Fonts
 PRODUCT_PACKAGES += \
@@ -76,14 +76,14 @@ PRODUCT_PACKAGES += \
     FontRubikRubikOverlay \
     FontGoogleSansOverlay \
 
--include vendor/gzosp/config/fonts.mk
+-include vendor/opaosp/config/fonts.mk
 
 PRODUCT_PACKAGES += \
      OverlayStub
 
 # Power whitelist
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/config/permissions/gzosp-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/gzosp-power-whitelist.xml
+    vendor/opaosp/config/permissions/opaosp-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/opaosp-power-whitelist.xml
 
 # Required packages
 PRODUCT_PACKAGES += \
@@ -157,7 +157,7 @@ PRODUCT_PACKAGES += \
     SettingsDarkThemeOverlay
 
 # Common overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/gzosp/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/opaosp/overlay/common
 
 # Boot animation include
 ifneq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
@@ -171,7 +171,7 @@ TARGET_BOOTANIMATION_SIZE := $(shell \
   fi )
 
 # get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/gzosp/prebuilt/common/bootanimation))
+bootanimation_sizes := $(subst .zip,, $(shell ls vendor/opaosp/prebuilt/common/bootanimation))
 bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
 
 # find the appropriate size and set
@@ -189,39 +189,39 @@ $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size
 
 ifeq ($(TARGET_BOOTANIMATION_HALF_RES),true)
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/bootanimation/halfres/$(TARGET_BOOTANIMATION_NAME).zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+    vendor/opaosp/prebuilt/common/bootanimation/halfres/$(TARGET_BOOTANIMATION_NAME).zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 else
 PRODUCT_COPY_FILES += \
-    vendor/gzosp/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+    vendor/opaosp/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
 endif
 endif
 
 # Versioning System
-# gzosp first version.
+# OPAOSP first version.
 PRODUCT_VERSION_MAJOR = 10
 PRODUCT_VERSION_MINOR = Stable
 PRODUCT_VERSION_MAINTENANCE = 2.0
-GZOSP_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
-ifdef GZOSP_BUILD_EXTRA
-    GZOSP_POSTFIX := -$(GZOSP_BUILD_EXTRA)
+OPAOSP_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
+ifdef OPAOSP_BUILD_EXTRA
+    OPAOSP_POSTFIX := -$(OPAOSP_BUILD_EXTRA)
 endif
 
-ifndef GZOSP_BUILD_TYPE
-    GZOSP_BUILD_TYPE := UNOFFICIAL
+ifndef OPAOSP_BUILD_TYPE
+    OPAOSP_BUILD_TYPE := UNOFFICIAL
 endif
 
 # Set all versions
-GZOSP_VERSION := Gzosp-$(GZOSP_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(GZOSP_BUILD_TYPE)$(GZOSP_POSTFIX)
-GZOSP_MOD_VERSION := Gzosp-$(GZOSP_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(GZOSP_BUILD_TYPE)$(GZOSP_POSTFIX)
+OPAOSP_VERSION := OnePlusAOSP-$(OPAOSP_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(OPAOSP_BUILD_TYPE)$(OPAOSP_POSTFIX)
+OPAOSP_MOD_VERSION := OnePlusAOSP-$(OPAOSP_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(OPAOSP_BUILD_TYPE)$(OPAOSP_POSTFIX)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    gzosp.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
-    ro.gzosp.version=$(GZOSP_VERSION) \
-    ro.modversion=$(GZOSP_MOD_VERSION) \
-    ro.gzosp.buildtype=$(GZOSP_BUILD_TYPE)
+    opaosp.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
+    ro.opaosp.version=$(OPAOSP_VERSION) \
+    ro.modversion=$(OPAOSP_MOD_VERSION) \
+    ro.opaosp.buildtype=$(OPAOSP_BUILD_TYPE)
 
 # Google sounds
-include vendor/gzosp/google/GoogleAudio.mk
+include vendor/opaosp/google/GoogleAudio.mk
 
-EXTENDED_POST_PROCESS_PROPS := vendor/gzosp/tools/gzosp_process_props.py
+EXTENDED_POST_PROCESS_PROPS := vendor/opaosp/tools/opaosp_process_props.py

@@ -42,11 +42,11 @@ except ImportError:
 
 DEBUG = False
 default_manifest = ".repo/manifests/gzosp_default.xml"
-custom_local_manifest = ".repo/local_manifests/gzosp_manifest.xml"
+custom_local_manifest = ".repo/local_manifests/opaosp_manifest.xml"
 custom_default_revision = "8.1"
-custom_dependencies = "gzosp.dependencies"
-org_manifest = "GZOSP-Devices"  # leave empty if org is provided in manifest
-org_display = "GZOSP-Devices"  # needed for displaying
+custom_dependencies = "opaosp.dependencies"
+org_manifest = "OPAOSP-Devices"  # leave empty if org is provided in manifest
+org_display = "OPAOSP-Devices"  # needed for displaying
 
 github_auth = None
 

@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func gzospExpandVariables(ctx android.ModuleContext, in string) string {
-	gzospVars := ctx.Config().VendorConfig("gzospVarsPlugin")
+func opaospExpandVariables(ctx android.ModuleContext, in string) string {
+	opaospVars := ctx.Config().VendorConfig("opaospVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if gzospVars.IsSet(name) {
-			return gzospVars.String(name), nil
+		if opaospVars.IsSet(name) {
+			return opaospVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand

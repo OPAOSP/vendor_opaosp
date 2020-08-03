@@ -15,11 +15,11 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/gzosp_arm.mk \
-    $(LOCAL_DIR)/gzosp_arm64.mk \
-    $(LOCAL_DIR)/gzosp_x86.mk
+    $(LOCAL_DIR)/opaosp_arm.mk \
+    $(LOCAL_DIR)/opaosp_arm64.mk \
+    $(LOCAL_DIR)/opaosp_x86.mk
 
 COMMON_LUNCH_CHOICES := \
-    gzosp_arm-userdebug \
-    gzosp_arm64-userdebug \
-    gzosp_x86-userdebug
+    opaosp_arm-userdebug \
+    opaosp_arm64-userdebug \
+    opaosp_x86-userdebug
